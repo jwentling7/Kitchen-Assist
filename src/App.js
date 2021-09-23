@@ -2,18 +2,21 @@ import React, { useState, useRef } from "react";
 import RecipeList from "./RecipeList";
 
 function App() {
+  const APP_ID = "";
   const API_KEY = "";
-  const baseURL = "https://api.spoonacular.com/recipes/complexSearch?query=";
+  const baseURL = "https://api.edamam.com/search?q=";
 
   const [recipes, setRecipes] = useState([]);
   let searchTerm = useRef();
 
   function handleSearch(event) {
     event.preventDefault();
-    fetch(`${baseURL}${searchTerm.current.value}&apiKey=${API_KEY}`)
+    fetch(
+      `${baseURL}${searchTerm.current.value}&app_id=${APP_ID}&app_key=${API_KEY}`
+    )
       .then((res) => res.json())
       .then((data) => {
-        setRecipes(data.results);
+        setRecipes(data.hits);
       })
       .catch(() => console.log("error"));
   }
@@ -34,7 +37,16 @@ function App() {
         <button type="submit">Search</button>
       </form>
 
-      <RecipeList recipes={recipes} />
+      <div>
+        {recipes.map((r) => (
+          <RecipeList
+            title={r.recipe.label}
+            image={r.recipe.image}
+            totalCalories={r.recipe.calories}
+            servings={r.recipe.yield}
+          />
+        ))}
+      </div>
     </>
   );
 }
