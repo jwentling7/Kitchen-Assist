@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef } from "react";
+import RecipeList from "./RecipeList";
 
 function App() {
+  const API_KEY = "";
+  const baseURL = "https://api.spoonacular.com/recipes/complexSearch?query=";
+
+  const [recipes, setRecipes] = useState([]);
+  let searchTerm = useRef();
+
+  function handleSearch(event) {
+    event.preventDefault();
+    fetch(`${baseURL}${searchTerm.current.value}&apiKey=${API_KEY}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setRecipes(data.results);
+      })
+      .catch(() => console.log("error"));
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Kitchen Assist</h1>
+
+      <form onSubmit={handleSearch}>
+        <label for="search">Search Recipes</label>
+        <input
+          type="text"
+          name="search"
+          ref={searchTerm}
+          id="search"
+          placeholder="Whatcha searchin' for?"
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      <RecipeList recipes={recipes} />
+    </>
   );
 }
 
