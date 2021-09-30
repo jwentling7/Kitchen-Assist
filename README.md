@@ -12,14 +12,14 @@ Below is a list of some things I would like to add in the app.
 ### Grocery List
 
 1. [ ] Search Groceries
-2. [ ] Add, Delete, Mark Done, Favorite Groceries
+2. [ ] Add, Delete, Mark Done Groceries
 3. [ ] Add, Delete Multiple Lists
 4. [ ] Filter Groceries/Lists
 
 ### Recipe Book
 
 1. [x] ~~Search Recipes~~
-2. [ ] Add, Delete, Favorite Recipes
+2. [ ] Add, Delete Recipes
 3. [ ] Add, Delete Multiple Books
 4. [ ] Filter Recipes/Books
 5. [x] ~~Overview Recipe: Name, Image, Servings and Calories of Recipe~~
