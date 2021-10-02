@@ -19,6 +19,7 @@ const useSearchRecipe = () => {
             title: r.recipe.label,
             image: r.recipe.image,
             totalCalories: r.recipe.calories,
+            time: r.recipe.totalTime,
             servings: r.recipe.yield,
             ingredients: r.recipe.ingredientLines,
             url: r.recipe.url,

@@ -1,21 +1,15 @@
 import React from "react";
 import RecipeFunctions from "../helper/RecipeFunctions";
-import RecipeCard from "../components/RecipeCard";
+import { RecipesList } from "../components";
+import "./Page.scss";
 
 export default function RecipeBook() {
   const { recipeBook } = RecipeFunctions();
+
   return (
-    <>
-      <div>
-        <h2>My Recipe Book!</h2>
-      </div>
-      <div>
-        {recipeBook.map((r) => (
-          <div key={r.key}>
-            <RecipeCard recipe={r} />
-          </div>
-        ))}
-      </div>
-    </>
+    <div className="page__content">
+      <h2 className="page__title title--medium">My Recipe Book!</h2>
+      <RecipesList searchedRecipes={recipeBook} />
+    </div>
   );
 }

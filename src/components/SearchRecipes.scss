@@ -1,0 +1,12 @@
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 2em;
+
+  &__input {
+    border-radius: var(--border-radius);
+    padding: 0.8em;
+  }
+}
