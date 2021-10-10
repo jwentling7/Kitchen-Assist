@@ -1,7 +1,7 @@
-import Header from "./Header";
-import RecipeCard from "./RecipeCard";
-import RecipesList from "./RecipesList";
-import useSearchRecipe from "./SearchRecipeLogic";
-import SearchRecipes from "./SearchRecipes";
+import Header from "./Header/Header";
+import RecipeCard from "./RecipeCard/RecipeCard";
+import RecipesList from "./RecipeList/RecipesList";
+import SearchRecipes from "./SearchRecipes/SearchRecipes";
+import { Page, PageTitle } from "./Page.style";
 
-export { Header, RecipeCard, RecipesList, useSearchRecipe, SearchRecipes };
+export { Header, RecipeCard, RecipesList, SearchRecipes, Page, PageTitle };

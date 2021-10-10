@@ -17,7 +17,6 @@ const RecipeFunctions = () => {
   };
 
   // Add Recipe button calls this
-  // Saving to local storage here. Doing useEffect kept whiping my localStorage on page reload BUG
   const saveRecipe = (newRecipe) => {
     if (!recipeExists(newRecipe)) {
       const newRecipeBook = [...recipeBook, newRecipe];
@@ -34,7 +33,27 @@ const RecipeFunctions = () => {
       setRecipeBook(newRecipeBook);
     }
   };
-  return { recipeBook, setRecipeBook, recipeExists, saveRecipe, deleteRecipe };
+
+  // Get list type for recipe list
+  const getList = (listType, list) => {
+    switch (listType) {
+      case "recipeBook":
+        return recipeBook;
+      case "searchedRecipes":
+        return list;
+      default:
+        return "basicList";
+    }
+  };
+
+  return {
+    recipeBook,
+    setRecipeBook,
+    recipeExists,
+    saveRecipe,
+    deleteRecipe,
+    getList,
+  };
 };
 
 export default RecipeFunctions;

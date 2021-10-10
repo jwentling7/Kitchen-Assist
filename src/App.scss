@@ -53,28 +53,3 @@ a {
     font-size: 1.3em;
   }
 }
-
-.btn {
-  padding: 0.8em 1.2em;
-  border: 1px solid var(--clr-main);
-  border-radius: var(--border-radius);
-
-  &--primary {
-    background-color: var(--clr-main);
-    color: var(--clr-font-secondary);
-
-    &:active,
-    &:hover {
-      background-color: var(--clr-secondary);
-      color: var(--clr-font-main);
-    }
-  }
-
-  &--secondary {
-    &:active,
-    &:hover {
-      background-color: var(--clr-secondary);
-      color: var(--clr-font-main);
-    }
-  }
-}

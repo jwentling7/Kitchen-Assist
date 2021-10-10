@@ -5,6 +5,17 @@ const useSearchRecipe = () => {
   const { APP_ID, API_KEY, BASE_URL } = Constants();
   const [searchedRecipes, setSearchedRecipes] = useState([]);
 
+  const getTotalTime = (totalTime) => {
+    const hours = parseInt(totalTime / 60);
+    const minutes = totalTime % 60;
+
+    return [{ hours: hours, minutes: minutes }];
+  };
+
+  const getCalories = (totalCalories, servings) => {
+    return parseInt(totalCalories / servings);
+  };
+
   // Search (recipe) button calls this
   const searchRecipe = (event) => {
     event.preventDefault();
@@ -18,8 +29,8 @@ const useSearchRecipe = () => {
             key: r.recipe.url,
             title: r.recipe.label,
             image: r.recipe.image,
-            totalCalories: r.recipe.calories,
-            time: r.recipe.totalTime,
+            totalCalories: getCalories(r.recipe.calories, r.recipe.yield),
+            time: getTotalTime(r.recipe.totalTime),
             servings: r.recipe.yield,
             ingredients: r.recipe.ingredientLines,
             url: r.recipe.url,

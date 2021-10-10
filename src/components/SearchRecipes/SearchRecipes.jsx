@@ -1,10 +1,11 @@
 import React from "react";
-import useSearchRecipe from "./SearchRecipeLogic";
-import RecipesList from "./RecipesList";
+import useSearchRecipe from "../../helper/SearchRecipeFunctions";
+import RecipesList from "../RecipeList/RecipesList";
+import { Button } from "../Button.style";
 import "./SearchRecipes.scss";
 
 const SearchRecipes = () => {
-  const { searchRecipe, searchedRecipes } = useSearchRecipe();
+  const { searchedRecipes, searchRecipe } = useSearchRecipe();
 
   return (
     <>
@@ -24,11 +25,11 @@ const SearchRecipes = () => {
           autoFocus
           className="search-form__input"
         />
-        <button type="submit" className="search-form__btn btn btn--primary">
+        <Button primary type="submit">
           Search Recipes
-        </button>
+        </Button>
       </form>
-      <RecipesList searchedRecipes={searchedRecipes} />
+      <RecipesList listType="searchedRecipes" list={searchedRecipes} />
     </>
   );
 };
