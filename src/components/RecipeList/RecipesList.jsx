@@ -16,7 +16,7 @@ export default function RecipesList(props) {
             {recipeBook.find((recipe) => recipe.key === r.key) ? (
               <>
                 <p>Saved in Recipe Book.</p>
-                <Button secondary onClick={() => deleteRecipe(r)} type="button">
+                <Button delete onClick={() => deleteRecipe(r)} type="button">
                   Delete Recipe
                 </Button>
               </>

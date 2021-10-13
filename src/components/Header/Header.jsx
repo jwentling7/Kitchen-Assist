@@ -2,24 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as KitchenAssistLogo } from "../../assets/kitchen-assist-logo.svg";
 import { Button } from "../Button.style";
-import "./Header.scss";
+import { HeaderContainer, HeaderNavBar, HeaderLink } from "./Header.style";
 
 export default function Header() {
   return (
-    <div className="header">
-      <KitchenAssistLogo className="header__logo" />
-      <ul className="header__nav-bar">
+    <HeaderContainer>
+      <KitchenAssistLogo />
+      <HeaderNavBar>
         <Link to="/">
-          <li className="header__link">
+          <HeaderLink>
             <Button primary>Search</Button>
-          </li>
+          </HeaderLink>
         </Link>
         <Link to="/recipeBook">
-          <li className="header__link">
+          <HeaderLink>
             <Button secondary>My Recipe Book</Button>
-          </li>
+          </HeaderLink>
         </Link>
-      </ul>
-    </div>
+      </HeaderNavBar>
+    </HeaderContainer>
   );
 }

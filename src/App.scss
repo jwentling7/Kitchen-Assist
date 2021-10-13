@@ -3,6 +3,8 @@
 :root {
   --clr-main: #1c3144;
   --clr-secondary: #ecb84a;
+  --clr-warning: #d44747;
+  --clr-warning-dark: #b43232;
   --clr-font-main: #121212;
   --clr-font-secondary: #fff;
   --border-radius: 4px;
@@ -33,6 +35,33 @@ html {
 }
 
 body {
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+h4 {
+  margin-bottom: 0;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+dl {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5em;
+}
+
+dt {
+  flex: 0 1 47%;
+}
+
+dd {
+  flex: 0 0 47%;
   margin: 0;
 }
 

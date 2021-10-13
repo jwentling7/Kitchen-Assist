@@ -26,4 +26,17 @@ export const Button = styled.button`
         color: var(--clr-font-main);
       }
     `}
+
+    ${(props) =>
+    props.delete &&
+    css`
+      background-color: var(--clr-warning);
+      color: var(--clr-font-secondary);
+
+      &:active,
+      &:hover {
+        background-color: var(--clr-warning-dark);
+        color: var(--clr-font-secondary);
+      }
+    `}
 `;

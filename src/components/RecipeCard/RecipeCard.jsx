@@ -1,48 +1,46 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-import "./RecipeCard.scss";
+import { useFlipCard } from "../../helper";
+import { Card, CardFront, CardBack, CardImage } from "./RecipeCard.style";
+import { Button } from "../Button.style";
 
 export default function RecipeCard({ recipe }) {
-  return (
-    <div className="recipe-card">
-      <div className=" recipe-card__wrapper recipe-card--front">
-        <img
-          src={recipe.image}
-          alt={recipe.title}
-          className="recipe-card__image"
-        />
-        <div>
-          <h3 className="recipe-card__title title--small">{recipe.title}</h3>
-          <div className="recipe-card__meta">
-            <p>Servings: {recipe.servings}</p>
-            <p>Calories per serving: {recipe.totalCalories}</p>
-            <p>
-              Total time:{" "}
-              {recipe.time[0].hours === 0 &&
-                recipe.time[0].minutes === 0 &&
-                "unknown"}
-              {recipe.time[0].hours > 0 && `${recipe.time[0].hours} hour(s)`}{" "}
-              {recipe.time[0].minutes > 0 &&
-                `${recipe.time[0].minutes} minutes`}
-            </p>
-          </div>
-        </div>
-      </div>
+  const { isFlipped, flipCard } = useFlipCard();
 
-      <div className=" recipe-card__wrapper recipe-card--back">
-        <h3 className="recipe-card__title title--small">{recipe.title}</h3>
+  return (
+    <Card onClick={flipCard}>
+      <CardFront isFlipped={isFlipped}>
+        <CardImage src={recipe.image} alt={recipe.title} />
+
+        <h3>{recipe.title}</h3>
+        <dl>
+          <dt>Servings:</dt>
+          <dd>{recipe.servings}</dd>
+
+          <dt>Calories per serving:</dt>
+          <dd>{recipe.totalCalories}</dd>
+
+          <dt>Total time:</dt>
+          <dd>
+            {recipe.time[0].hours === 0 &&
+              recipe.time[0].minutes === 0 &&
+              "unknown"}
+            {recipe.time[0].hours > 0 && `${recipe.time[0].hours} hour(s)`}{" "}
+            {recipe.time[0].minutes > 0 && `${recipe.time[0].minutes} minutes`}
+          </dd>
+        </dl>
+      </CardFront>
+
+      <CardBack isFlipped={isFlipped}>
+        <h3>{recipe.title}</h3>
         <h4>Ingredients</h4>
-        <ul className="recipe-card__ingredient-list">
+        <ul>
           {recipe.ingredients.map((i) => {
             const filtered = i.replace("", "");
-            return (
-              <li key={uuidv4()} className="recipe-card__ingredient">
-                {filtered}
-              </li>
-            );
+            return <li key={uuidv4()}>{filtered}</li>;
           })}
         </ul>
-        <span className="btn">
+        <Button secondary>
           <a
             href={recipe.url}
             type="text/html"
@@ -51,8 +49,8 @@ export default function RecipeCard({ recipe }) {
           >
             See Full Recipe
           </a>
-        </span>{" "}
-      </div>
-    </div>
+        </Button>
+      </CardBack>
+    </Card>
   );
 }
