@@ -23,4 +23,4 @@ Below is a list of some things I would like to add in the app.
 3. [ ] Add, Delete Multiple Books
 4. [ ] Filter Recipes/Books
 5. [x] ~~Overview Recipe: Name, Image, Servings and Calories of Recipe~~
-6. [ ] Click on Recipe: Name, Image, Servings, Calories, Ingredients, and Steps(Link)
+6. [x] ~~Click on Recipe: Name, Image, Servings, Calories, Ingredients, and Steps(Link)~~
