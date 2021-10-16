@@ -2,7 +2,7 @@
 
 # Kitchen Assist
 
-The purpose of this project is for me to practice integrating a 3rd party API into a React App.
+The purpose of this project is for me to practice integrating a 3rd party API into a React app, and to learn as many different pieces of React as I can.
 API: [Edamam](https://developer.edamam.com/)
 
 I switched from [spoonacular API](https://spoonacular.com/) to Edamam, because Edamam only limited my free account by the number of requests per minute (about 100 requests/min). With Spoonacular, the number of requests was limited to about 150 requests/day. I also liked that with Edamam I could get the title, image, ingredients, and nutrition information all in one call. With Spoonacular, if you want to search all recipes, you connect to one endpoint, and if you want to get the ingredients and instructions, you need to connect to another endpoint. The latter needing the ID found from the first endpoint. Since this is only for my own use and practice, I went with Edamam, even though it did not directly give the recipe instructions (it gives a URL to the instructions).
