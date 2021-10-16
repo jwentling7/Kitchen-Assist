@@ -25,4 +25,4 @@ yarn-error.log*
 
 # My Stuff
 test.json
-src/constants/Constants.js
+/src/constants/Constants.js
