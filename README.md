@@ -1,4 +1,4 @@
-[<img src="kitchen-assist-logo.svg" alt="Kitchen Assist" width="541"/>](https://github.com/jwentling7/Kitchen-Assist)
+![](kitchen-assist-logo.svg)
 
 # Kitchen Assist
 
