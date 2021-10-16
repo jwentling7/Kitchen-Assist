@@ -1,3 +1,5 @@
+[<img src="kitchen-assist-logo.svg" alt="Kitchen Assist" width="541"/>](https://github.com/jwentling7/Kitchen-Assist)
+
 # Kitchen Assist
 
 The purpose of this project is for me to practice integrating a 3rd party API into a React App.
