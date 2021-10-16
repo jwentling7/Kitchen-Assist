@@ -1,15 +1,21 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useFlipCard } from "../../helper";
-import { Card, CardFront, CardBack, CardImage } from "./RecipeCard.style";
-import { Button } from "../Button.style";
+import {
+  Card,
+  CardFront,
+  CardBack,
+  CardImage,
+  Ingredient,
+} from "./RecipeCard.style";
+import { Button } from "../styles";
 
 export default function RecipeCard({ recipe }) {
   const { isFlipped, flipCard } = useFlipCard();
 
   return (
-    <Card onClick={flipCard}>
-      <CardFront isFlipped={isFlipped}>
+    <Card onClick={flipCard} isFlipped={isFlipped}>
+      <CardFront>
         <CardImage src={recipe.image} alt={recipe.title} />
 
         <h3>{recipe.title}</h3>
@@ -37,7 +43,7 @@ export default function RecipeCard({ recipe }) {
         <ul>
           {recipe.ingredients.map((i) => {
             const filtered = i.replace("", "");
-            return <li key={uuidv4()}>{filtered}</li>;
+            return <Ingredient key={uuidv4()}>{filtered}</Ingredient>;
           })}
         </ul>
         <Button secondary>

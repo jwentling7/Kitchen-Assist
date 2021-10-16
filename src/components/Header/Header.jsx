@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as KitchenAssistLogo } from "../../assets/kitchen-assist-logo.svg";
-import { Button } from "../Button.style";
+import { Button } from "../styles/Button.style";
 import { HeaderContainer, HeaderNavBar, HeaderLink } from "./Header.style";
 
 export default function Header() {

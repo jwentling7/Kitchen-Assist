@@ -24,3 +24,7 @@ Below is a list of some things I would like to add in the app.
 4. [ ] Filter Recipes/Books
 5. [x] ~~Overview Recipe: Name, Image, Servings and Calories of Recipe~~
 6. [x] ~~Click on Recipe: Name, Image, Servings, Calories, Ingredients, and Steps(Link)~~
+
+## References
+
+1. I used some ideas from [TylerPottsDev](https://github.com/TylerPottsDev)'s awesome [card-flip](https://github.com/TylerPottsDev/card-flip). Learned about perspective, preserve-3d, and backface-visibility from this!

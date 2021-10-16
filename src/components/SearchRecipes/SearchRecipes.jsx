@@ -1,7 +1,7 @@
 import React from "react";
 import useSearchRecipe from "../../helper/SearchRecipeFunctions";
 import RecipesList from "../RecipeList/RecipesList";
-import { Button } from "../Button.style";
+import { Button } from "../styles/Button.style";
 import "./SearchRecipes.scss";
 
 const SearchRecipes = () => {

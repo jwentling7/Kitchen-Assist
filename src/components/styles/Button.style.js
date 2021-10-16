@@ -5,8 +5,9 @@ export const Button = styled.button`
   border: 1px solid var(--clr-main);
   border-radius: var(--border-radius);
 
-  ${(props) =>
-    props.primary &&
+  // primary button
+  ${({ primary }) =>
+    primary &&
     css`
       background-color: var(--clr-main);
       color: var(--clr-font-secondary);
@@ -17,8 +18,9 @@ export const Button = styled.button`
       }
     `}
 
-  ${(props) =>
-    props.secondary &&
+  // secondary button
+  ${({ secondary }) =>
+    secondary &&
     css`
       &:active,
       &:hover {
@@ -27,8 +29,9 @@ export const Button = styled.button`
       }
     `}
 
-    ${(props) =>
-    props.delete &&
+    // delete button
+    ${({ trash }) =>
+    trash &&
     css`
       background-color: var(--clr-warning);
       color: var(--clr-font-secondary);
