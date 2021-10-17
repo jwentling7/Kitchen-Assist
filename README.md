@@ -30,3 +30,5 @@ Below is a list of some things I would like to add in the app.
 ## References
 
 1. I used some ideas from [TylerPottsDev](https://github.com/TylerPottsDev)'s awesome [card-flip](https://github.com/TylerPottsDev/card-flip). Learned about perspective, preserve-3d, and backface-visibility from this!
+
+2. For transitions I recommend looking at [cubic-bezier!](https://cubic-bezier.com/). It is fun to test out different animations and tailor it exactly how you want.

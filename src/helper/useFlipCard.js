@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function useFlipCard() {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -6,10 +6,6 @@ export default function useFlipCard() {
   const flipCard = () => {
     setIsFlipped((currState) => !currState);
   };
-
-  useEffect(() => {
-    console.log(isFlipped);
-  }, [isFlipped]);
 
   return { isFlipped, flipCard };
 }

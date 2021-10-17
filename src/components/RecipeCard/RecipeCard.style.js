@@ -16,12 +16,13 @@ export const Card = styled.div`
   color: var(--clr-font-secondary);
   overflow: none;
   cursor: pointer;
-  transition: transform 1s;
+  transition: all 1s cubic-bezier(0.3, 0.85, 0.55, 1.4);
   transform-style: preserve-3d;
 
   ${({ isFlipped }) =>
     isFlipped &&
     css`
+      box-shadow: -6px 6px 8px var(--clr-font-main);
       transform: rotateY(180deg);
     `}
 `;
