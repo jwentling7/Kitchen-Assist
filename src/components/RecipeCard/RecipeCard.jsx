@@ -28,11 +28,9 @@ export default function RecipeCard({ recipe }) {
 
           <dt>Total time:</dt>
           <dd>
-            {recipe.time[0].hours === 0 &&
-              recipe.time[0].minutes === 0 &&
-              "unknown"}
-            {recipe.time[0].hours > 0 && `${recipe.time[0].hours} hour(s)`}{" "}
-            {recipe.time[0].minutes > 0 && `${recipe.time[0].minutes} minutes`}
+            {recipe.timeHour === 0 && recipe.timeMinute === 0 && "unknown"}
+            {recipe.timeHour > 0 && `${recipe.timeHour} hour(s)`}{" "}
+            {recipe.timeMinute > 0 && `${recipe.timeMinute} minutes`}
           </dd>
         </dl>
       </CardFront>

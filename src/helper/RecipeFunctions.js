@@ -1,37 +1,34 @@
 import { useState, useEffect } from "react";
-import Constants from "../constants/Constants";
+import Routes from "../routes/routes";
 
 const RecipeFunctions = () => {
-  const { LOCAL_STORAGE_KEY } = Constants();
+  const { recipes, getRecipes, createRecipe, deleteARecipe } = Routes();
   const [recipeBook, setRecipeBook] = useState([]);
 
-  // Get saved recipes from local storage
   useEffect(() => {
-    const storedRecipes = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    storedRecipes && setRecipeBook(storedRecipes);
-  }, []);
+    setRecipeBook(recipes);
+  }, [recipes]);
 
   // Search recipe book for recipe: boolean
-  const recipeExists = (recipe) => {
-    return recipeBook.find((r) => r.key === recipe.key) ? true : false;
-  };
+  function recipeExists(recipe) {
+    const storedRecipes = recipes;
+    if (storedRecipes.length > 1) {
+      return storedRecipes.find((r) => r.url === recipe.url) ? true : false;
+    } else {
+      return storedRecipes.url === recipe.url ? true : false;
+    }
+  }
 
   // Add Recipe button calls this
   const saveRecipe = (newRecipe) => {
-    if (!recipeExists(newRecipe)) {
-      const newRecipeBook = [...recipeBook, newRecipe];
-      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newRecipeBook));
-      setRecipeBook(newRecipeBook);
-    }
+    !recipeExists(newRecipe) && createRecipe(newRecipe);
   };
 
   // Delete Recipe button calls this
   const deleteRecipe = (recipe) => {
-    if (recipeExists(recipe)) {
-      const newRecipeBook = recipeBook.filter((r) => r.key !== recipe.key);
-      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newRecipeBook));
-      setRecipeBook(newRecipeBook);
-    }
+    // console.log(recipe.id);
+    recipeExists(recipe) && deleteARecipe(recipe.id, recipe.title);
+    getRecipes();
   };
 
   // Get list type for recipe list

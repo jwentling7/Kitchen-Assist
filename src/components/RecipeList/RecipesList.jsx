@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import RecipeFunctions from "../../helper/RecipeFunctions";
 import "./RecipesList.scss";
@@ -10,10 +10,10 @@ export default function RecipesList({ listType, list }) {
   return (
     <div className="recipes-list">
       {getList(listType, list).map((r) => (
-        <div style={{ perspective: "1000px" }} key={r.key}>
+        <div style={{ perspective: "1000px" }} key={r.url}>
           <RecipeCard recipe={r} />
           <div className="recipes-list__btns">
-            {recipeBook.find((recipe) => recipe.key === r.key) ? (
+            {recipeBook.find((recipe) => recipe.url === r.url) ? (
               <>
                 <p>Saved in Recipe Book.</p>
                 <Button trash onClick={() => deleteRecipe(r)} type="button">

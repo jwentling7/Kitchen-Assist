@@ -5,11 +5,14 @@ const useSearchRecipe = () => {
   const { APP_ID, API_KEY, BASE_URL } = Constants();
   const [searchedRecipes, setSearchedRecipes] = useState([]);
 
-  const getTotalTime = (totalTime) => {
+  const getTimeHour = (totalTime) => {
     const hours = parseInt(totalTime / 60);
-    const minutes = totalTime % 60;
+    return hours;
+  };
 
-    return [{ hours: hours, minutes: minutes }];
+  const getTimeMinute = (totalTime) => {
+    const minutes = totalTime % 60;
+    return minutes;
   };
 
   const getCalories = (totalCalories, servings) => {
@@ -26,11 +29,11 @@ const useSearchRecipe = () => {
       .then((data) => {
         const searchResults = data.hits.map((r) => {
           return {
-            key: r.recipe.url,
             title: r.recipe.label,
             image: r.recipe.image,
             totalCalories: getCalories(r.recipe.calories, r.recipe.yield),
-            time: getTotalTime(r.recipe.totalTime),
+            timeHour: getTimeHour(r.recipe.totalTime),
+            timeMinute: getTimeMinute(r.recipe.totalTime),
             servings: r.recipe.yield,
             ingredients: r.recipe.ingredientLines,
             url: r.recipe.url,
@@ -38,7 +41,7 @@ const useSearchRecipe = () => {
         });
         setSearchedRecipes(searchResults);
       })
-      .catch(() => console.error("Error in search recipes."));
+      .catch((error) => console.error(`Error in search recipes: ${error}`));
   };
 
   return { searchedRecipes, searchRecipe };
